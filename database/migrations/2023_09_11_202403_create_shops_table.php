@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->unsignedBigInteger("user_id");
-            $table->longText('description');
-            $table->string('profile_image');
+            $table->longText('description')->nullable();
+            $table->string('profile_image')->nullable();
             $table->timestamps();
 
             //Foreign Keys
