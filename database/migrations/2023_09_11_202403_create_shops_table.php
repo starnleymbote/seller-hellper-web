@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
+            $table->string('name');
             $table->unsignedBigInteger("user_id");
             $table->longText('description')->nullable();
             $table->string('profile_image')->nullable();
