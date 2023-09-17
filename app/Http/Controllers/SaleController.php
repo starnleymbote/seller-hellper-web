@@ -6,7 +6,7 @@ use App\Http\Requests\StoreSalesRequest;
 use App\Http\Requests\UpdateSalesRequest;
 use App\Models\Sales;
 
-class SalesController extends Controller
+class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.

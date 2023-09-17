@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Generator as Faker;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
@@ -22,7 +21,7 @@ class RolesFactory extends Factory
     {
         $roles = ['Admin', 'Seller'];
         return [
-            'name' => $this->faker->randomElement($roles),
+            'name' => fake()->randomElement($roles),
         ];
     }
 }
