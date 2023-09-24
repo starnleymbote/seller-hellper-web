@@ -7,16 +7,16 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class RegisterUser extends JsonResource
 {
-    protected $request;
-    protected $message;
-    protected $statusCode;
+    // protected $request;
+    // protected $message;
+    // protected $statusCode;
     
-    public function __construct($request, ?string $message, ?int $statusCode)
-    {
+    // public function __construct($request, ?string $message, ?int $statusCode)
+    // {
 
-        $this->message = $message;
-        $this->statusCode = $statusCode;
-    }
+    //     $this->message = $message;
+    //     $this->statusCode = $statusCode;
+    // }
     /**
      * Transform the resource into an array.
      *
@@ -24,18 +24,21 @@ class RegisterUser extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        // return parent::toArray($request);
+        return [
+            
+        ];
       
     }
 
-    public function with(Request $request): array
-    {
-        return [
+    // public function with(Request $request): array
+    // {
+    //     return [
             
-            'message' => $this->message,
-            'status' => $this->statusCode,
+    //         'message' => $this->message,
+    //         'status' => $this->statusCode,
         
-        ];
+    //     ];
 
-    }
+    // }
 }

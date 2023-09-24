@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 use Illuminate\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Exceptions\CustomExceptionHandler;
+use App\Http\Resources\RegisterUser;
 
 class RegisterUserRequest extends FormRequest
 {
@@ -40,5 +41,6 @@ class RegisterUserRequest extends FormRequest
             'first_name.max' => 'The maximum supported and allow length is 255',
         ];
     }
+    
 
 }

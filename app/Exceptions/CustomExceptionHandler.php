@@ -23,16 +23,13 @@ class CustomExceptionHandler extends Exception
 
     public function render($request, Throwable $exception)
     {
-        $errors = $exception->validator->errors()->all();
-        if ($exception instanceof ValidationException) {
             // Customize the validation error response format
             return response()->json([
                 'data' => [],
                 'message' => 'The given data was invalid.',
                 'errors' => $exception->errors(),
             ], 422);
-        }
-
+     
         return parent::render($request, $exception);
     }
 }

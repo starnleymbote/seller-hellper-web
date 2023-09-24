@@ -16,6 +16,7 @@ class RegisterController extends Controller
     public function __invoke(RegisterUserRequest $request)
     {
 
+
         $registerUser = new User;
 
         $registerUser ->first_name = $request->input('first_name');
@@ -29,12 +30,16 @@ class RegisterController extends Controller
         $saveUser = $registerUser ->save();
 
         if(!$saveUser){
-            throw new CustomExceptionHandler('Error');
-            //return new RegisterUser($saveUser, 'User creation failed. Internal serve error', 500);
-            //return response()->json($saveUser, 500);
+            throw new CustomExceptionHandler();
+
         }
     
-        return new RegisterUser($registerUser, 'Yess 1001%',  100);
+        return (new RegisterUser($registerUser))
+        ->additional([
+            'message' => 'User created successfully', 
+            'status' => 'success',
+            'statuscode'=> 201,
+        ]);
 
     }
 }
