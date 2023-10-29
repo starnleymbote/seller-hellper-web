@@ -89,7 +89,7 @@
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex items-center">
-                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> {{ $user ->first_name }}
+                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> {{ $user ->role ->name}}
                         </div>
                     </td>
                     <td class="px-6 py-4">

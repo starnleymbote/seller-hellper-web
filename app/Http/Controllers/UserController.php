@@ -12,9 +12,8 @@ class UserController extends Controller
     public function index()
     {
 
-        return User::with('role')->get();
-        $users = User::select('uuid', 'profile_image', 'first_name', 'last_name', 'surname', 'phone', 'email', 'role_id')->get();
-       
+        $users = User::with('role:id,name')->select('uuid', 'profile_image', 'first_name', 'last_name', 'surname', 'phone', 'email', 'role_id')->get();
+        
         return view('users.list')->with('users', $users);
     }
 
