@@ -23,7 +23,10 @@ use App\Http\Controllers\DashBoardController;
 Route::get('dashboard', [DashboardController::class, 'index']);
 
 Route::prefix('user')->group(function () {
+
     Route::get('list/users', [UserController::class, 'index'])->name('list.users');
+    Route::get('edit/user/{user_id}', [UserController::class, 'show'])->name('edit.user');
+
 });
 
 

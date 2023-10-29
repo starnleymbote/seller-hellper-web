@@ -93,7 +93,7 @@
                         </div>
                     </td>
                     <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
+                        <a href="{{ route('edit.user', ['user_id' => 1000])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
                     </td>
                 </tr>
 
