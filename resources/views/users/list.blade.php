@@ -64,6 +64,8 @@
                 <th scope="col" class="px-6 py-3">
                     Role
                 </th>
+                <th>Action</th>
+                <th>Account Status</th>
             </tr>
         </thead>
         <tbody>
@@ -95,6 +97,9 @@
                     <td class="px-6 py-4">
                         <a href="{{ route('edit.user', ['user_id' => 1000])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
                     </td>
+                    <td>Active</td>
+               
+                    
                 </tr>
 
             @endforeach

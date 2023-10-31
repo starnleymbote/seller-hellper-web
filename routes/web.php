@@ -24,8 +24,10 @@ Route::get('dashboard', [DashboardController::class, 'index']);
 
 Route::prefix('user')->group(function () {
 
-    Route::get('list/users', [UserController::class, 'index'])->name('list.users');
-    Route::get('edit/user/{user_id}', [UserController::class, 'show'])->name('edit.user');
+    Route::GET('list/users', [UserController::class, 'index'])->name('list.users');
+    Route::GET('create/user', [UserController::class, 'create'])->name('create.user');
+    Route::POST('store/user', [UserController::class, 'store'])->name('store.user');
+    Route::GET('edit/user/{user_id}', [UserController::class, 'show'])->name('edit.user');
 
 });
 
