@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Api\V1\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,4 +19,5 @@ use App\Http\Controllers\RegisterController;
 //     return $request->user();
 // });
 
-Route::post('/register', RegisterController::class);
+Route::POST('/register', RegisterController::class);
+

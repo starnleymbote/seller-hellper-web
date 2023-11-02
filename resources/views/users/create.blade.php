@@ -2,7 +2,7 @@
 
 @section('content')
 
-{!! Form::open(['route' => 'store.user', 'method' => 'POST']) !!}
+{!! Form::open(['route' => 'register.user', 'method' => 'POST']) !!}
 
 <div class="form-group mb-4">
     <label for="website-admin" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
