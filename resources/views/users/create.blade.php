@@ -20,12 +20,6 @@
     </div>
 </div>
 
-<div>
-  <label for="username-error" class="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Your name</label>
-  <input type="text" id="username-error" class="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-red-100 dark:border-red-400" placeholder="Bonnie Green">
-  <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops!</span> Username already taken!</p>
-</div>
-
 <div class="form-group mb-4">
   <label for="website-admin" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
   <div class="flex">
