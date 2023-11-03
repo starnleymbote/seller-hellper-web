@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Validation\Validator;
+// use Illuminate\Validation\Validator;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Exceptions\CustomExceptionHandler;
 use App\Http\Resources\RegisterUser;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class RegisterUserRequest extends FormRequest
 {
@@ -32,6 +34,7 @@ class RegisterUserRequest extends FormRequest
             'profile' => 'nullable|mimes:jpeg,jpg,png|max:4096',
             'role_id' => 'required|numeric'
         ];
+
     }
 
     public function messages()
@@ -43,5 +46,10 @@ class RegisterUserRequest extends FormRequest
         ];
     }
     
+    // protected function failedValidation(Validator $validator)
+    // {
+    //     $errors = $validator->errors(); // Here is your array of errors
 
+    //     throw new HttpResponseException($errors);
+    // }
 }

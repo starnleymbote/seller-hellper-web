@@ -13,6 +13,7 @@ class RegistrationService {
 
     public function register(Request $request)
     {
+        return $request;
         $registerUser = new User;
 
         $registerUser ->first_name = $request->input('first_name');

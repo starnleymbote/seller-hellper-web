@@ -1,11 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Service\RegistrationService;
+use App\Http\Requests\RegisterUserRequest;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
+    public function __construct(RegistrationService $registrationService)
+    {
+        $this ->registrationService = $registrationService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -28,9 +37,23 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RegisterUserRequest $request)
     {
-        return "Saving the user info right now";
+
+        return $request;
+        return $request->validate();
+        return "NO errors";
+        if($errors->any())
+        {
+            return "Error occured men";
+        }
+
+       
+       $this->registrationService->register(new Request(
+            $request ->validated()
+        ));
+        
+        //return redirect()->back()->withErrors($request);
     }
 
     /**

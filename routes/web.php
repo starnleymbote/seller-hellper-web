@@ -20,7 +20,6 @@ use App\Http\Controllers\RegisterController;
 
 
 
-Route::POST('register', RegisterController::class)->name('register.user');
 Route::get('dashboard', [DashboardController::class, 'index']);
 
 Route::prefix('user')->group(function () {
