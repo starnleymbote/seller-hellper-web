@@ -39,7 +39,7 @@ class UserController extends Controller
      */
     public function store(RegisterUserRequest $request)
     {
-
+ 
        $this->registrationService->register(new Request(
             $request ->validated()
         ));
