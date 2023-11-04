@@ -40,15 +40,6 @@ class UserController extends Controller
     public function store(RegisterUserRequest $request)
     {
 
-        return $request;
-        return $request->validate();
-        return "NO errors";
-        if($errors->any())
-        {
-            return "Error occured men";
-        }
-
-       
        $this->registrationService->register(new Request(
             $request ->validated()
         ));

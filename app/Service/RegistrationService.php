@@ -13,11 +13,11 @@ class RegistrationService {
 
     public function register(Request $request)
     {
-        return $request;
         $registerUser = new User;
 
         $registerUser ->first_name = $request->input('first_name');
         $registerUser ->last_name = $request->input('last_name');
+        $registerUser ->surname = $request->input('surname');
         $registerUser ->email = $request->input('email');
         $registerUser ->phone = $request->input('phone');
         $registerUser ->uuid = Str::uuid();

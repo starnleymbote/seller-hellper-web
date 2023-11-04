@@ -14,14 +14,14 @@
           </svg>
         </span>
         <input type="text" id="first_name" name="first_name" class="@error('first_name') border-red-700 @enderror p-3 rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter First Name">
-        
+
       </div>
       @if ($errors->has('first_name'))
     
           <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $errors->first('first_name') }}</span></p>          
-      
+
       @endif
-      
+
     </div>
 
     <div class="form-group mb-4">
@@ -54,12 +54,12 @@
           </svg>
         </span>
       
-        <input type="text" id="username" name="username" class="@error('username') border-red-500 @enderror p-3 rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Username">
+        <input type="text" id="surname" name="surname" class="@error('surname') border-red-500 @enderror p-3 rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Surname">
 
       </div>
-      @if ($errors->has('username'))
+      @if ($errors->has('surname'))
     
-          <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $errors->first('username') }}</span></p>          
+          <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $errors->first('surname') }}</span></p>          
 
       @endif
 
@@ -97,7 +97,7 @@
           </svg>
         </span>
       
-        <input type="text" id="email" name="email" class="@error('email') border-red-500 @enderror p-3 rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Email">
+        <input type="email" id="email" name="email" class="@error('email') border-red-500 @enderror p-3 rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Email">
 
       </div>
       @if ($errors->has('email'))
