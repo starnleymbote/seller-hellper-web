@@ -46,10 +46,4 @@ class RegisterUserRequest extends FormRequest
         ];
     }
     
-    // protected function failedValidation(Validator $validator)
-    // {
-    //     $errors = $validator->errors(); // Here is your array of errors
-
-    //     throw new HttpResponseException($errors);
-    // }
 }
