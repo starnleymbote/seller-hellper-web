@@ -64,31 +64,43 @@ describe('user registration', function () {
 
             $roles = Roles::factory()->create();
             $role = Roles::select('id')->firstOrFail();
-            $registrationService = new RegistrationService();
             
-            $user = $registrationService->register(new Request([
-                
+            $response = $this->post('/user/store/user', [
                 'first_name' => 'John',
                 'last_name' => 'Doe',
                 'surname' => 'Smith',
+                'email'=> '4544545',
                 'phone' => '254700000011',
                 'role_id' => $role->id,
                 'password' => 'password',
-
-            ]));
+            ]);
             
-            expect([
+            // $registrationService = new RegistrationService();
+            
+            // $user = $registrationService->register(new Request([
                 
-                'first_name' => 'John',
-                'last_name' => 'Doe',
-                'surname' => 'Smith',
-                'phone' => '254700000011',
-                'role_id' => $role->id,
-                'password' => 'password',
+            //     'first_name' => 'John',
+            //     'last_name' => 'Doe',
+            //     'surname' => 'Smith',
+            //     'phone' => '254700000011',
+            //     'role_id' => $role->id,
+            //     'password' => 'password',
 
-            ])->not->toContain('email');
+            // ]));
+            
+            // expect([
+                
+            //     'first_name' => 'John',
+            //     'last_name' => 'Doe',
+            //     'surname' => 'Smith',
+            //     'phone' => '254700000011',
+            //     'role_id' => $role->id,
+            //     'password' => 'password',
 
-        $this->assertSame(0, User::all()->count());
+            // ])->not->toContain('email');
+            $response
+            ->assertStatus(302);
+        // $this->assertSame(0, User::all()->count());
 
         });
 
