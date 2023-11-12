@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\ShopController;
 use App\Http\Controllers\Api\V1\RegisterController;
 
@@ -21,6 +22,9 @@ use App\Http\Controllers\Api\V1\RegisterController;
 // });
 
 Route::POST('/register', RegisterController::class);
+
+
+Route::post('login', [UserController::class, 'login']);
 
 Route::prefix('shop')->group(function () {
     
