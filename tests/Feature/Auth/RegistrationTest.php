@@ -75,32 +75,7 @@ describe('user registration', function () {
                 'password' => 'password',
             ]);
             
-            // $registrationService = new RegistrationService();
-            
-            // $user = $registrationService->register(new Request([
-                
-            //     'first_name' => 'John',
-            //     'last_name' => 'Doe',
-            //     'surname' => 'Smith',
-            //     'phone' => '254700000011',
-            //     'role_id' => $role->id,
-            //     'password' => 'password',
-
-            // ]));
-            
-            // expect([
-                
-            //     'first_name' => 'John',
-            //     'last_name' => 'Doe',
-            //     'surname' => 'Smith',
-            //     'phone' => '254700000011',
-            //     'role_id' => $role->id,
-            //     'password' => 'password',
-
-            // ])->not->toContain('email');
-            $response
-            ->assertStatus(302);
-        // $this->assertSame(0, User::all()->count());
+            $response ->assertStatus(302);
 
         });
 
