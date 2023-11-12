@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\LoginResource;
 
 class UserController extends Controller
 {
@@ -20,7 +21,9 @@ class UserController extends Controller
             $success['token'] =  $user->createToken($login ->input('token_name'))->plainTextToken; 
             $success['user'] =  $user;
 
-            return response()->json($success);
+
+            return new LoginResource($success);
+            return response()->json(LoginResource::collection($success));
         }
         else
         {
@@ -28,14 +31,6 @@ class UserController extends Controller
             return response()->json(['error'=>'Access denied. Wrong credentials'], 401);
         }
 
-        if (Auth::attempt([
-            'email' => $login ->input('email'),
-        'password' => $login ->input('password')
-        ])) {
-            $login->session()->regenerate();
- 
-            return $login;
-        }
-        return $login;
+        
     }
 }
