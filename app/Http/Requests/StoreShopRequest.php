@@ -11,7 +11,7 @@ class StoreShopRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreShopRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'user_id' => 'required|numeric',
+            'description' => 'nullable|string',
+            'profile_image' => 'nullable|max:2048|image|mimes:jpeg,png.jpg',
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\ShopController;
 use App\Http\Controllers\Api\V1\RegisterController;
 
 /*
@@ -21,3 +22,11 @@ use App\Http\Controllers\Api\V1\RegisterController;
 
 Route::POST('/register', RegisterController::class);
 
+Route::prefix('shop')->group(function () {
+    
+    Route::POST('create', [ShopController::Class, 'store']);
+
+});
+// Route::middleware(['auth', 'second'])->group(function () {
+    
+// });
