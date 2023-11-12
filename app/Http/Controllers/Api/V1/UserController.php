@@ -22,7 +22,14 @@ class UserController extends Controller
             $success['user'] =  $user;
 
 
-            return new LoginResource($success);
+            $user_collection = new LoginResource($success);
+            
+            $user_collection->additional([
+                'status' => 200,
+                'message' => 'Resource retrieved successfully',
+            ]);
+
+            return $user_collection;
             return response()->json(LoginResource::collection($success));
         }
         else
