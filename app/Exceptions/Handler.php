@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use App\Http\Resources\LoginErrorResource;
 
 class Handler extends ExceptionHandler
 {
@@ -26,5 +27,22 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(function (\Illuminate\Auth\AuthenticationException $e, $request) {
+            if ($request->is('api/*')) {
+                
+
+                $error = new LoginErrorResource(['not allowed']);
+
+                $error->additional([
+                    'status' => 401,
+                    'message' => 'User is unauthorized',
+                ]);
+                
+                return $error;
+                
+            }
+        });
+        
     }
 }
