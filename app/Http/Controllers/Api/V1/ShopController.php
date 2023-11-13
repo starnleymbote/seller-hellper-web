@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 
 use Auth;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 use App\Service\ShopService;
 use App\Http\Resources\ShopResource;
@@ -21,7 +22,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        //
+        return Shop::all();
     }
 
     /**
