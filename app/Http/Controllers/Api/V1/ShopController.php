@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Service\ShopService;
+use App\Http\Resources\ShopResource;
 use App\Http\Requests\StoreShopRequest;
 
 class ShopController extends Controller
@@ -36,11 +38,20 @@ class ShopController extends Controller
     public function store(StoreShopRequest $request)
     {
         
-        return $this->shopService->createShop(new Request(
+        $this->shopService->createShop(new Request(
             
             $request ->validated()
         
         ));
+
+        $shop =  new ShopResource($request);
+
+        $shop->additional([
+            'status' => 201,
+            'message' => 'Shop '. $request->input('name') .' created successfully',
+        ]);
+
+        return $shop;
     }
 
     /**
