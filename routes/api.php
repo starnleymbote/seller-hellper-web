@@ -26,11 +26,12 @@ Route::POST('/register', RegisterController::class);
 
 Route::post('login', [UserController::class, 'login']);
 
-Route::prefix('shop')->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     
-    Route::POST('create', [ShopController::Class, 'store']);
+    Route::prefix('shop')->group(function () {
+    
+        Route::POST('create', [ShopController::Class, 'store']);
+    
+    });
 
 });
-// Route::middleware(['auth', 'second'])->group(function () {
-    
-// });
