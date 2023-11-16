@@ -23,7 +23,6 @@ class StoreShopRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'user_id' => 'required|numeric',
             'description' => 'nullable|string',
             'profile_image' => 'nullable|max:2048|image|mimes:jpeg,png.jpg',
         ];

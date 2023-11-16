@@ -38,7 +38,7 @@ class ShopController extends Controller
      */
     public function store(StoreShopRequest $request)
     {
-        
+
         $this->shopService->createShop(new Request(
             
             $request ->validated()
