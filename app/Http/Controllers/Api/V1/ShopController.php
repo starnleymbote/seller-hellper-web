@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Service\ShopService;
 use App\Http\Resources\ShopResource;
 use App\Http\Requests\StoreShopRequest;
+use App\Http\Resources\ListShopResource;
 
 class ShopController extends Controller
 {
@@ -22,7 +23,17 @@ class ShopController extends Controller
      */
     public function index()
     {
-        return Shop::all();
+
+        $my_shops = $this->shopService->listShops(Auth::user()->id);
+        
+        $shops =  new ListShopResource($my_shops);
+
+        $shops ->additional([
+            'status' => 200,
+            'message' => 'Shops '.count($my_shops) .' listed.',
+        ]);
+
+        return $shops;
     }
 
     /**

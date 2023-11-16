@@ -24,4 +24,12 @@ class ShopService{
 
     }
 
+    //List a user shop
+    public function listShops($owner_id)
+    {
+        $my_shop = Shop::select('uuid', 'name', 'profile_image', 'description')->where('user_id', $owner_id)->get();
+
+        return $my_shop;
+    }
+
 }
