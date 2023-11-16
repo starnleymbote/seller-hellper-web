@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashBoardController;
@@ -31,6 +32,11 @@ Route::prefix('user')->group(function () {
 
 });
 
+Route::prefix('shop')->group(function() {
+
+    Route::GET('list', [ShopController::class, 'index'])->name('list.shops');
+
+});
 
 
 

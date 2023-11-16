@@ -13,7 +13,9 @@ class ShopController extends Controller
      */
     public function index()
     {
-        //
+        $shops = Shop::Select('uuid', 'name', 'profile_image', 'description')->get();
+
+        return view('shop.list')->with('shops', $shops);
     }
 
     /**
