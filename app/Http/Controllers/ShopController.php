@@ -42,7 +42,7 @@ class ShopController extends Controller
     {
         $shops = $this->shopService->listShops($owner_id);
         
-        $owners_name = User::select('first_name', 'last_name')->first();
+        $owners_name = User::select('first_name', 'last_name')->where('uuid', $owner_id)->first();
 
         return view('shop.user_shop_list', compact('shops', 'owners_name'));
 
