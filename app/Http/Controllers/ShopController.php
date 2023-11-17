@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shop;
+use App\Models\User;
+use App\Service\ShopService;
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
-use App\Models\Shop;
+
 
 class ShopController extends Controller
 {
+
+    public function __construct(ShopService $shopService)
+    {
+        $this ->shopService = $shopService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -24,6 +33,19 @@ class ShopController extends Controller
     public function create()
     {
         //
+    }
+
+    /**
+    * List all of the shops that are owned by a given user
+    */
+    public function ownersShop($owner_id)
+    {
+        $shops = $this->shopService->listShops($owner_id);
+        
+        $owners_name = User::select('first_name', 'last_name')->first();
+
+        return view('shop.user_shop_list', compact('shops', 'owners_name'));
+
     }
 
     /**

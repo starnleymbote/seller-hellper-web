@@ -35,6 +35,7 @@ Route::prefix('user')->group(function () {
 Route::prefix('shop')->group(function() {
 
     Route::GET('list', [ShopController::class, 'index'])->name('list.shops');
+    Route::GET('list/{owner_id}', [ShopController::class, 'ownersShop'])->name('users.shop');
 
 });
 

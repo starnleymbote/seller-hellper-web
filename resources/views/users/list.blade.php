@@ -65,13 +65,14 @@
                     Role
                 </th>
                 <th>Action</th>
+                <th>Users Shops</th>
                 <th>Account Status</th>
             </tr>
         </thead>
         <tbody>
 
             @foreach ($users as $user)
-
+            
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="w-4 p-4">
                         <div class="flex items-center">
@@ -94,9 +95,14 @@
                             <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> {{ $user ->role ->name}}
                         </div>
                     </td>
-                    <td class="px-6 py-4">
-                        <a href="{{ route('edit.user', ['user_id' => 1000])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
+                    <td class="pr-6 py-4">
+                        <a href="{{ route('edit.user', ['user_id' => $user ->uuid ])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
                     </td>
+                    
+                    <td class="pr-6 py-4 pl-2">
+                        <a href="{{ route('users.shop', ['owner_id' => $user ->uuid ] )}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">List Shops</a>
+                    </td>
+
                     <td>Active</td>
                
                     

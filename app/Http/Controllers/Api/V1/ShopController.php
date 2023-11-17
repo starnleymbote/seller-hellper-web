@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 
 use Auth;
+use App\Models\User;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 use App\Service\ShopService;
@@ -24,7 +25,7 @@ class ShopController extends Controller
     public function index()
     {
 
-        $my_shops = $this->shopService->listShops(Auth::user()->id);
+        $my_shops = $this->shopService->listShops(Auth::user()->uuid);
         
         $shops =  new ListShopResource($my_shops);
 

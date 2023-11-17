@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Auth;
+use App\Models\User;
 use App\Models\Shop;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -27,7 +28,9 @@ class ShopService{
     //List a user shop
     public function listShops($owner_id)
     {
-        $my_shop = Shop::select('uuid', 'name', 'profile_image', 'description')->where('user_id', $owner_id)->get();
+        $user_id = User::select('id')->where('uuid', $owner_id)->first();
+
+        $my_shop = Shop::select('uuid', 'name', 'profile_image', 'description')->where('user_id', $user_id ->id)->get();
 
         return $my_shop;
     }
