@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\ShopController;
+use App\Http\Controllers\Api\V1\SalesController;
 use App\Http\Controllers\Api\V1\RegisterController;
 
 /*
@@ -33,6 +34,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::POST('create', [ShopController::Class, 'store']);
         Route::GET('list', [ShopController::Class, 'index']);
     
+    });
+
+    Route::prefix('sale')->group(function () {
+
+        Route::GET('list/{shop_uuid}', [SalesController::class, 'list']);
+
     });
 
 });

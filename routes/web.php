@@ -42,7 +42,7 @@ Route::prefix('shop')->group(function() {
 
 Route::prefix('sale')->group(function() {
    
-    Route::GET('list', [SaleController::class, 'index'])->name('list.sales');
+    Route::GET('list', [SaleController::class, 'index'])->name('list.all.sales');
 
 });
 
