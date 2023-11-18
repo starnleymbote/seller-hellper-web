@@ -39,6 +39,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::prefix('sale')->group(function () {
 
         Route::GET('list/{shop_uuid}', [SalesController::class, 'list']);
+        Route::POST('store', [SalesController::class, 'store']);
 
     });
 

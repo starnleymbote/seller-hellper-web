@@ -6,6 +6,8 @@ use App\Service\SaleService;
 use Illuminate\Http\Request;
 use App\Helper\UuidToIdParser;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSalesRequest;
+use App\Http\Resources\SalesResource;
 use App\Http\Resources\ListSalesResource;
 
 class SalesController extends Controller
@@ -34,5 +36,27 @@ class SalesController extends Controller
         ]);
 
         return $sales_resource;
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreSalesRequest $request)
+    {
+
+        $this->saleService ->store(new Request(
+        
+            $request ->validated()
+        
+        ));
+
+        $store_sale_resource = new SalesResource(['Data inserted']);
+
+        $store_sale_resource ->additional([
+            'status' => 200,
+            'message' => 'Sales stored successfully',
+        ]);
+
+        return $store_sale_resource;
     }
 }

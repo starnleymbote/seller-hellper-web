@@ -15,9 +15,29 @@ class SaleService{
      */
     public function listSales($shop_id)
     {
-        $sales = Sales::select('uuid', 'quantity', 'amount', 'sold_by', 'shop_id')->where('id', $shop_id)->get();
+        $sales = Sales::select('uuid', 'quantity', 'amount', 'sold_by', 'shop_id')->where('shop_id', $shop_id)->get();
 
         return $sales;
+    }
+
+
+    /**
+     * Store a sales record
+     */
+    public function store(Request $request)
+    {
+
+        $store_sale = new Sales;
+
+        $store_sale ->uuid = Str::uuid();
+        $store_sale ->quantity = $request ->input('quantity');
+        $store_sale ->amount = $request ->input('amount');
+        $store_sale ->sold_by = $request ->input('sold_by');
+        $store_sale ->shop_id = $request ->input('shop_id');
+
+        $save = $store_sale ->save(); 
+
+
     }
 
 }
