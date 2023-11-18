@@ -22,10 +22,11 @@ class StoreSalesRequest extends FormRequest
     public function rules(): array
     {
         return [
+
             'quantity' => 'required | integer | min: 1',
             'amount' => 'required | integer | min: 1',
-            'sold_by' => 'required | integer | min: 1',
-            'shop_id' => 'required | integer| min : 1'
+            'shop_uuid' => 'required | uuid'
+        
         ];
     }
 }

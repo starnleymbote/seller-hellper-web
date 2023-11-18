@@ -31,8 +31,10 @@ class SalesController extends Controller
         $sales_resource =  new ListSalesResource($sales);
 
         $sales_resource ->additional([
+
             'status' => 200,
             'message' => 'Sales listed successfully',
+        
         ]);
 
         return $sales_resource;
