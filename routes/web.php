@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashBoardController;
@@ -39,6 +40,11 @@ Route::prefix('shop')->group(function() {
 
 });
 
+Route::prefix('sale')->group(function() {
+   
+    Route::GET('list', [SaleController::class, 'index'])->name('list.sales');
+
+});
 
 
 Route::get('/', function () {

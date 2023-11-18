@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sales;
 use App\Http\Requests\StoreSalesRequest;
 use App\Http\Requests\UpdateSalesRequest;
-use App\Models\Sales;
 
 class SaleController extends Controller
 {
@@ -13,7 +13,9 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sales::select('uuid', 'quantity', 'amount', 'sold_by')->get();
+
+        return view('sales.list', compact('sales'));
     }
 
     /**
