@@ -43,7 +43,7 @@ class SaleService{
 
         $save = $store_sale ->save(); 
 
-
+        return $save;
     }
 
 }

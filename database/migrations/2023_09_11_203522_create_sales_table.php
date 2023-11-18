@@ -22,7 +22,7 @@ return new class extends Migration
 
             //Foreign Keys
             $table->foreign('sold_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('shop_id')->references('id')->on('sales')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('shop_id')->references('id')->on('shops')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

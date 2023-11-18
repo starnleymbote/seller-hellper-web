@@ -10,6 +10,10 @@ use App\Http\Requests\StoreSalesRequest;
 use App\Http\Resources\SalesResource;
 use App\Http\Resources\ListSalesResource;
 
+use Illuminate\Support\Str;
+use App\Models\Sales;
+use Auth;
+
 class SalesController extends Controller
 {
     
@@ -45,6 +49,7 @@ class SalesController extends Controller
      */
     public function store(StoreSalesRequest $request)
     {
+
 
         $this->saleService ->store(new Request(
         
