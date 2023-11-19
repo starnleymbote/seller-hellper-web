@@ -22,7 +22,7 @@ class RegistrationService {
         $registerUser ->phone = $request->input('phone');
         $registerUser ->uuid = Str::uuid();
         $registerUser ->role_id = $request->input('role_id');
-        $registerUser ->password = Hash::make($request->input('password'));
+        $registerUser ->password = bcrypt(request('password'));
 
         $saveUser = $registerUser ->save();
     }
