@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Sales;
 use App\Http\Requests\StoreSalesRequest;
 use App\Http\Requests\UpdateSalesRequest;
@@ -13,7 +14,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sales::select('uuid', 'quantity', 'amount', 'sold_by')->get();
+        
+        $sales = Sales::with('user:id,first_name,last_name')->select('id', 'uuid', 'quantity', 'amount')->get();
 
         return view('sales.list', compact('sales'));
     }
