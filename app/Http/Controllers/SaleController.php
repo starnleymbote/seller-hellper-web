@@ -15,7 +15,7 @@ class SaleController extends Controller
     public function index()
     {
         
-        $sales = Sales::with('user:id,first_name,last_name')->select('id', 'uuid', 'quantity', 'amount')->get();
+        $sales = Sales::with('user:id,first_name,last_name')->select('id', 'uuid', 'quantity', 'amount', 'sold_by')->get();
 
         return view('sales.list', compact('sales'));
     }
